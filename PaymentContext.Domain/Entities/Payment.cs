@@ -1,8 +1,10 @@
+using Flunt.Validations;
 using PaymentContext.Domain.Entities.ValueObjects;
+using PaymentContext.Shared.Entities;
 
 namespace PaymentContext.Domain.Entities
 {
-    public abstract class Payment{
+    public abstract class Payment : Entity {
         protected Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string payer, Document document, Address address, Email email)
         {
             Number = Guid.NewGuid().ToString().Replace("-","").Substring(0,10).ToUpper(); // criando um Guid, utilizando o ToString para ser string, usando Replace para substituir os traços, o substring para trazer 10 caracteres e o ToUpper para trazer tudo maiusculo.
@@ -14,6 +16,9 @@ namespace PaymentContext.Domain.Entities
             Document = document;
             Address = address;
             Email = email;
+
+            AddNotifications(new Contract<Payment>().Requires().IsGreaterThan(0, Total, "Payment.Total", "O total não pode ser zero.").IsGreaterOrEqualsThan(Total, TotalPaid, "Payment.TotalPaid", "O valor pago é menor que o valor do pagamento."));
+            
         }
         public string Number { get; private set; } // numero interno de controle. 8 digitos.
         public DateTime PaidDate { get; private set; }
