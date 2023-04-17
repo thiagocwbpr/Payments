@@ -1,14 +1,16 @@
+using PaymentContext.Domain.Entities.ValueObjects;
+
 namespace PaymentContext.Domain.Entities
 {
     public abstract class Payment{
-        protected Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string owner, string document, string address, string email)
+        protected Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string payer, Document document, Address address, Email email)
         {
             Number = Guid.NewGuid().ToString().Replace("-","").Substring(0,10).ToUpper(); // criando um Guid, utilizando o ToString para ser string, usando Replace para substituir os traços, o substring para trazer 10 caracteres e o ToUpper para trazer tudo maiusculo.
             PaidDate = paidDate;
             ExpireDate = expireDate;
             Total = total;
             TotalPaid = totalPaid;
-            Owner = owner;
+            Payer = payer;
             Document = document;
             Address = address;
             Email = email;
@@ -18,10 +20,10 @@ namespace PaymentContext.Domain.Entities
         public DateTime ExpireDate { get; private set; }
         public decimal Total { get; private set; }
         public decimal TotalPaid { get; private set; }
-        public string Owner { get; private set; }
-        public string Document { get; private set; }
-        public string Address { get; private set; }
-        public string Email { get; private set; }
+        public string Payer { get; private set; }
+        public Document Document { get; set; }
+        public Address Address { get; private set; }
+        public Email Email { get; private set; }
     }
 
 

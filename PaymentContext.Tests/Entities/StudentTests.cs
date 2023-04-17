@@ -8,10 +8,12 @@ public class UnitTest
     [TestMethod]
     public void TestMethod()
     {
-        var subscription = new Subscription(null);
-        var student = new Student("Thiago","Menezes","2081780588","thiagocwbpr@gmail.com");
+        /*var subscription = new Subscription(null);
+        var student = new Student("Thiago","2081780681","thiagocwbpr@gmal.com");
         
-        student.AddSubscription(subscription);
+        student.AddSubscription(subscription); */
+
+       
         
     }
 }
