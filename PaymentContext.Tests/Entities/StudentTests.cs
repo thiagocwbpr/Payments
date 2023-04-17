@@ -8,7 +8,7 @@ public class UnitTest
     [TestMethod]
     public void TestMethod()
     {
-        var subscription = new Subscription();
+        var subscription = new Subscription(null);
         var student = new Student("Thiago","Menezes","2081780588","thiagocwbpr@gmail.com");
         
         student.AddSubscription(subscription);

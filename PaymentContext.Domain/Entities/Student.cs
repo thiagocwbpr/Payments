@@ -11,8 +11,8 @@ namespace PaymentContext.Domain.Entities{
             Email = email;
             _subscriptions = new List<Subscription>();
 
-            if(firstName.Length == 0)
-            throw new Exception("Nome inválido."); // Forma de validação.
+            /*if(firstName.Length == 0)
+            throw new Exception("Nome inválido."); // Forma de validação. */
             
         }
 
@@ -24,11 +24,12 @@ namespace PaymentContext.Domain.Entities{
         public IReadOnlyCollection<Subscription> Subscriptions { get {return _subscriptions.ToArray();}}
         
         public void AddSubscription(Subscription subscripton){
-            foreach (var sub in _subscriptions){
-                sub.Active = false;
+            foreach (var sub in Subscriptions){
+                sub.Inactivate();
             }
             _subscriptions.Add(subscripton);
         }
+       
     }
 
 }
