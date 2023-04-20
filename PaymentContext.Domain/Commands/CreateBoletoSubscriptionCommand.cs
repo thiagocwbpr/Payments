@@ -31,7 +31,7 @@ namespace PaymentContext.Domain.Commands
         public string Country { get; set; }
         public string ZipCode { get; set; }
 
-        public void Validate()
+        public void Validate() // Regra da interface. - Fail Fast Validations
         {
             AddNotifications(new Contract<CreateBoletoSubscriptionCommand>()
             .IsLowerThan(FirstName, 3 , "Name.FirstName", "Nome deve conter pelo menos 3 caracteres. ")
