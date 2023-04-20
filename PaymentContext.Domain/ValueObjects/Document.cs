@@ -10,7 +10,9 @@ namespace PaymentContext.Domain.Entities.ValueObjects
             Number = number;
             Type = type;
 
-            AddNotifications(new Contract<Document>().Requires().IsTrue(Validate(), "Document.Number","Documento inválido."));
+            AddNotifications(new Contract<Document>()
+            .Requires()
+            .IsTrue(Validate(), "Document.Number","Documento inválido."));
         }
 
         public string Number { get; private set; }

@@ -4,7 +4,7 @@ using PaymentContext.Domain.Entities.ValueObjects;
 
 namespace PaymentContext.Tests;
 
-// [TestClass]
+//[TestClass]
 public class DocumentTests
 {
     [TestMethod]

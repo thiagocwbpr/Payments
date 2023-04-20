@@ -5,6 +5,7 @@ namespace PaymentContext.Domain.Entities
 {
     public class Subscription : Entity{
 
+        // CONSTRUTOR
         private IList<Payment> _payments; // Esquema para trabalhar com a lista de forma interna.
         public Subscription(DateTime? expireDate)
         {
@@ -22,9 +23,11 @@ namespace PaymentContext.Domain.Entities
         public IReadOnlyCollection<Payment> Payments { get {return _payments.ToArray();}}
 
         // METHOD
-        public void AddPayment(Payment payment){
+        public void AddPayment(Payment payment){ // Método de pagamento.
 
-        AddNotifications(new Contract<Subscription>().Requires().IsGreaterThan(DateTime.Now, payment.PaidDate, "Subscription.Payments", "A data do pagamento deve ser futura."));
+        AddNotifications(new Contract<Subscription>()
+        .Requires()
+        .IsGreaterThan(DateTime.Now, payment.PaidDate, "Subscription.Payments", "A data do pagamento deve ser futura."));
 
         // if(IsValid) verifica se é valido.
 
