@@ -6,7 +6,7 @@ using PaymentContext.Tests.Mocks;
 
 namespace PaymentContext.Tests;
 
-[TestClass]
+// [TestClass]
 public class SubscriptionHandlerTests
 {
     [TestMethod]

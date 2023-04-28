@@ -8,7 +8,7 @@ namespace PaymentContext.Domain.Queries{
 
         // expressão LINQ.
         // possível criar qualquer expressão sobre o banco de dados abaixo.
-        public static Expression<Func<Student,bool>> GetStudent(string document){
+        public static Expression<Func<Student,bool>> GetStudentInfo(string document){
         
             return x => x.Document.Number == document;
 
