@@ -17,7 +17,7 @@ namespace PaymentContext.Domain.Entities.ValueObjects
 
         }
 
-        public string FirstName { get; private set; }
+        public string FirstName { get; private set; } // <-- private. tratamento de corrupção de código.
         public string LastName { get; private set; }
 
         public override string ToString()
