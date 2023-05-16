@@ -5,7 +5,7 @@ using PaymentContext.Shared.Entities;
 namespace PaymentContext.Domain.Entities
 {
     public abstract class Payment : Entity {
-        protected Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string payer, Document document, Address address, Email email)
+        public Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string payer, Document document, Address address, Email email)
         {
             Number = Guid.NewGuid().ToString().Replace("-","").Substring(0,10).ToUpper(); // criando um Guid, utilizando o ToString para ser string, usando Replace para substituir os traços, o substring para trazer 10 caracteres e o ToUpper para trazer tudo maiusculo.
             PaidDate = paidDate;

@@ -51,6 +51,10 @@ public class StudentTests
         subscription.AddPayment(payment);
         _student.AddSubscription(subscription);
         Assert.IsTrue(!_student.IsValid);
+
+        
+
+        
     }
   }
 }
